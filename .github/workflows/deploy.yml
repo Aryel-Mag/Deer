@@ -3,7 +3,7 @@ on: push
 env:
   USERNAME: arielmag
   IMAGE_NAME: deer
-  ENVNAME: change-me
+  ENVNAME: arielmag-deer
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
