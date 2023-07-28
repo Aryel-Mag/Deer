@@ -15,11 +15,6 @@ jobs:
           name: ${{ env.USERNAME }}/${{ env.IMAGE_NAME }}
           username: ${{ env.USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-  read-me-sync:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v3
       - name: Sync
         uses: ms-jpq/sync-dockerhub-readme@v1
         with:
