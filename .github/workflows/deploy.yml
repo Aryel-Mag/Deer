@@ -1,6 +1,5 @@
 name: Déploiement
-on:
-  push
+on: push
 env:
   USERNAME: arielmag
   IMAGE_NAME: deer
@@ -16,3 +15,13 @@ jobs:
           name: ${{ env.USERNAME }}/${{ env.IMAGE_NAME }}
           username: ${{ env.USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+  read-me-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync
+        uses: ms-jpq/sync-dockerhub-readme@v1
+        with:
+          username: ${{ env.USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          repository: ${{ env.USERNAME }}/${{ env.IMAGE_NAME }}
+          readme: "./README.md"
